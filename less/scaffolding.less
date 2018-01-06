@@ -1,0 +1,60 @@
+// The base scaffolding for this breakpoint
+.scaffolding(@breakpointName, @containerWidth, @gridGutterWidth, @minWidth: 0){
+	.container {
+		width: @containerWidth;
+		margin: 0 auto;
+	}
+
+	.grid {
+		display: grid;
+		grid-template-columns: repeat(@gridColumns, 1fr);
+		justify-items: stretch;
+		align-items: stretch;
+	}
+
+	[class*=col-] {
+		padding: @gridGutterWidth/2;
+	}
+
+	.cols(@gridColumns, @breakpointName);
+	.rows(@gridRows, @breakpointName);
+}
+
+// Loop through the columns
+.cols(@counter, @name: ~"") when (@counter > 0) {
+	.cols((@counter - 1), @name);
+
+	.col@{name}-start-@{counter} {
+		grid-column-start: @counter;
+	}
+
+	.col@{name}-@{counter} {
+		grid-column-end: span @counter;
+	}
+}
+
+// Loop through the columns
+.rows(@counter, @name: ~"") when (@counter > 0) {
+	.rows((@counter - 1), @name);
+
+	.row@{name}-start-@{counter} {
+		grid-row-start: @counter;
+	}
+
+	.row@{name}-@{counter} {
+		grid-row: span @counter;
+	}
+}
+
+/*
+ * Define the breakpoints, but the default breakpoint should not have a media query
+ */
+.breakpoint(@breakpointName, @containerWidth, @gridGutterWidth, @minWidth: 0) when (@minWidth > 0) {
+	@media(min-width: @minWidth) {
+		.scaffolding(@breakpointName, @containerWidth, @gridGutterWidth, @minWidth);
+	}
+}
+
+.breakpoint(@breakpointName, @containerWidth, @gridGutterWidth, @minWidth: 0) when not (@minWidth > 0) {
+	.scaffolding(@breakpointName, @containerWidth, @gridGutterWidth, @minWidth);
+}
