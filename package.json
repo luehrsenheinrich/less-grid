@@ -1,0 +1,35 @@
+{
+  "name": "less-grid",
+  "version": "0.1.0",
+  "description": "A CSS grid implementation is LESS",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luehrsenheinrich/less-grid.git"
+  },
+  "keywords": [
+    "grid",
+    "css",
+    "less",
+    "css",
+    "grid",
+    "grid-system"
+  ],
+  "author": "Luehrsen // Heinrich",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/luehrsenheinrich/less-grid/issues"
+  },
+  "homepage": "https://github.com/luehrsenheinrich/less-grid#readme",
+  "dependencies": {
+    "autoprefixer": "^7.2.4",
+    "cssnano": "^3.10.0",
+    "grunt": "^1.0.1",
+    "grunt-contrib-less": "^1.4.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-postcss": "^0.9.0",
+    "jit-grunt": "^0.10.0",
+    "less": "^2.7.3",
+    "pixrem": "^4.0.1",
+    "time-grunt": "^1.4.0"
+  }
+}
